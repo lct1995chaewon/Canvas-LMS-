@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link rel="icon" href="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/fec25fd9-3f2b-42d0-a110-0599c6774bf3.png" type="image/png">
+  <meta charset="UTF-8">
+  <title>Canvas LMS 標題格式產生器</title>
+  <link rel="icon" href="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/fec25fd9-3f2b-42d0-a110-0599c6774bf3.png" type="image/png">
+  <style>
+    body { font-family: 'Microsoft JhengHei', Arial, sans-serif; padding: 20px; }
+    label { margin-right: 6px; }
+    input, select, button { margin: 3px 0; }
+    #result { font-size: 1.2em; color: #222; margin-top: 10px; }
+    #copy-btn { margin-left: 10px; }
+  </style>
+</head><body>
+  <h2>Canvas LMS 標題格式產生器</h2>
+  <div>
+    <label for="type">工作類型：</label>
+    <select id="type">
+      <option value="工作紙">工作紙</option>
+      <option value="書">書</option>
+      <option value="作業">作業</option>
+      <option value="預習">預習</option>
+      <option value="小測">小測</option>
+      <option value="專題">專題</option>
+      <option value="溫習">溫習</option>
+    </select>
+  </div>
+  <div>
+    <label for="title">活動標題：</label>
+    <input type="text" id="title" placeholder="例：A1 p10 LQ1-2">
+  </div>
+  <div>
+    <input type="checkbox" id="hw">
+    <label for="hw">是否加_HW（要計算欠交）</label>
+  </div>
+  <button onclick="generateTitle()">產生格式</button>
+  <div id="result"></div>
+
+  <script>
+    function generateTitle() {
+      const term = '202526';
+      const type = document.getElementById('type').value;
+      const title = document.getElementById('title').value.trim();
+      const hwChecked = document.getElementById('hw').checked;
+      if (!title) {
+        document.getElementById('result').textContent = '請輸入活動標題…';
+        return;
+      }
+      let result = `${term}_${type}${title}`;
+      if (hwChecked) result += '_HW';
+      document.getElementById('result').textContent = result;
+    }
+  </script>
+</body>
+</html>
