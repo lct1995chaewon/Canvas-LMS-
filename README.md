@@ -7,6 +7,7 @@
 
 ## 簡介
 這是一個基於HTML5的輕量化工具，可快速產生符合Canvas LMS規範的作業與活動標題格式，支援選擇工作類型、自訂活動標題，並可一鍵複製結果，大幅提升在Canvas LMS中設定標題的效率。
+https://lct1995chaewon.github.io/nameHomework_for_Canvas/
 
 ---
 
